@@ -1,6 +1,18 @@
 Alyssa Gonzales
 Intuitive Surgical, Summer 2019 Internship Interview Assignment
 
+Software used:
+-textEditor: Sublime
+-Adobe DreamWeaver
+
+Tools & Languages used:
+-JavaScript
+-HTML
+-JQuery
+-JSON
+-Bootstrap
+-CSS
+
 "main.HTML" : 
 - includes webpage set-up such as image header, toolbar, column with 2 search bars, and search results
 - script for reading JSON file into table using JQuery & JavaScript
