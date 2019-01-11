@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+ <!-- Alyssa Gonzales Intuitive Internship Assignment -->
+<html>
+<!-- style setup -->
+	<head> 
+		<!--banner placement-->
+		<div class="header">
+			<img src="/Users/alyssagonzales/Desktop/IProj/assignment-banner.png" class="img-fluid" alt="Responsive image">
+    	</div>
+		
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+           <title> Alyssa - Intuitive Assignment</title>  
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		
+</head> 
+<!-- table set-up -->
+	<body>
+		 <div class ="col-md-4">
+           <div class="container" style="width:900px;">  
+                  <div class="table-responsive">
+                  <h1>Cardiac</h1>
+                  <br />
+                    <table class="table table-bordered table-striped" id="assignment_table">
+                      <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>City</th>
+                        <th>State</th>
+                        <th>Specialty</th>
+                        <th>Contact Surgeon</th>
+                      </tr>
+                    </table>
+                  </div> 
+            </div>
+		</div>
+           <br />  
+</body>
+
+<!-- assigns json data to table -->
+<script>
+	$(document).ready(function(){
+			$.getJSON("assignment.json", function(data){
+				var assignment_data = '';
+				$.each(data, function(key,value){
+					assignment_data += '<tr>';
+						//separating first and last
+						var str = value.name;
+						var split = str.split(" ");
+            if(value.specialty == "Cardiac"){ //filters data based on specialty
+  						assignment_data += '<td>'+split[0]+'</td>';
+  						assignment_data += '<td>'+split[1]+'</td>';
+  						assignment_data += '<td>'+value.city+'</td>';
+  						assignment_data += '<td>'+value.state+'</td>';
+  						assignment_data += '<td>'+value.specialty+'</td>';
+  						assignment_data += '<td>'+value.email+'</td>';
+  						assignment_data += '</tr>';
+          }
+				});
+				$('#assignment_table').append(assignment_data); //appending to table on page
+			});
+		});
+</script>
+</html>
+	
